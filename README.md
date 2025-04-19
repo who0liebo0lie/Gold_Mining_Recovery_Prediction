@@ -82,21 +82,30 @@ Some trends were noticed regarding elements throughout the gold purification pro
 Discovery was made that the best model to use was a Random Forest Regressor.  In testing the training model this achieved the low sMAPE value of 10.67%. The variables were then redefined to match the test set dataframe.  The optimization random forest regressor for 'roughter.output.recovery' and 'final.output.recovery' resulted in a sMAPE value of 15.24%. Both of these values were used to calculate the final sMAPE value of 0.141%. This model proficiently predicts gold recovery, helping to optimize production and eliminate unprofitable parameters. This effort paves the way for improved operational efficiency.
 
 📸 Screenshots
-🧪 Null Value Heatmap
+### 🧪 Null Value Heatmap  
+![Null Heatmap](images/goldmining_image_1.png)
 
-🔍 Concentration Over Time
+### 🔍 Concentration Over Time  
+![Concentration](images/goldmining_image_2.png)
 
-📈 Rough vs Final Recovery
+### 📈 Rough vs Final Recovery  
+![Recovery Comparison](images/goldmining_image_3.png)
 
-🔢 Correlation Matrix
+### 🔢 Correlation Matrix  
+![Correlation](images/goldmining_image_4.png)
 
-📉 RMSE Comparison
+### 📉 RMSE Comparison  
+![RMSE Plot](images/goldmining_image_5.png)
 
-🔁 Recovery Flow Diagram
+### 🔁 Recovery Flow Diagram  
+![Flow](images/goldmining_image_6.png)
 
-📉 Feature Distribution
+### 📉 Feature Distribution  
+![Distribution](images/goldmining_image_7.png)
 
-⚙️ Feature Importance
+### ⚙️ Feature Importance  
+![Feature Importance](images/goldmining_image_8.png)
+
 
 🤝 Contributing
 Feel free to fork this project and explore:
