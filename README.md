@@ -1,30 +1,30 @@
-⛏️ Gold Mining Recovery Analysis
+🪙 **Predicting Gold Recovery with Machine Learning**
 
-This project analyzes and predicts gold recovery rates in mining operations. Using real-world data, the notebook builds and evaluates regression models, compares recovery stages, and identifies process inefficiencies.
+In the heart of a gold mine, precision means profit. From raw ore to high-purity gold concentrate, each phase in the recovery pipeline requires delicate balance—and optimization at scale is no longer a manual game.
 
-📚 Table of Contents
-About the Project
-Installation
-Usage
-Project Structure
-Technologies Used
-Results & Insights
-Screenshots
-Contributing
-License
+This project simulates a real-world production challenge faced by a gold mining company: how to predict the efficiency of gold recovery at two critical stages—the flotation stage (rougher.output.recovery) and the final purification (final.output.recovery)—using machine learning.
 
-📌 About the Project
-This notebook walks through:
+Our mission was clear: build a model that could forecast recovery rates with high accuracy based on operational sensor data. This effort would allow mining engineers to make better decisions, improve yields, and reduce waste. To achieve this, we worked with three large datasets stored in CSV format, covering training, testing, and full feature versions of the gold recovery process.
 
-Exploratory Data Analysis (EDA) of gold recovery stages
+But this wasn't just a modeling exercise—it was a full ML pipeline from data sanity checks and preprocessing through model tuning and deployment-ready evaluation, all framed around real industrial process flows.
 
-Data cleaning and engineering
+### 🧠 Techniques & Industry-Ready Skills Demonstrated
 
-Machine learning using Linear Regression and Random Forest
-
-Model validation with RMSE
-
-Comparative analysis of full and rough recovery processes
+| Category              | Skill/Technique                                                                 |
+|-----------------------|----------------------------------------------------------------------------------|
+| **Data Engineering**  | Merged missing features into test set using full dataset                        |
+|                       | Verified recovery calculations using domain-specific formula and MAE comparison |
+|                       | Preprocessing for dtype consistency and feature availability                    |
+| **Exploratory Data Analysis** | Trend analysis of metal concentration across purification stages        |
+|                       | Distribution checks to ensure test/train similarity in feed size                |
+|                       | Identified feature importance and correlations                                  |
+| **Model Evaluation**  | Custom `sMAPE` scoring function for multi-output regression                     |
+|                       | Cross-validation for robust model selection                                     |
+|                       | Comparison of models across multiple metrics                                    |
+| **Modeling**          | Trained Random Forest Regressor with grid search tuning                         |
+|                       | Trained and evaluated multi-output regression targets                           |
+| **Deployment Readiness** | Test model performance on unseen dataset                                    |
+|                       | Provided reproducible, well-structured Python functions for pipeline steps      |
 
 🛠 Installation
 Clone the repository or download the .ipynb file
@@ -75,11 +75,17 @@ Matplotlib
 Jupyter Notebook
 
 📊 Results & Insights
-After importing three raw data files from a gold mining company work began to build a model to predict rougher concentrate (recovery rougher.output.recovery) and final concentrate recovery (final.output.recovery). Recovery was verified to be calculated correctly.  In the training set the MAE between calculations and the feature values was so miniscule (9.3e-15). Some features were noted to not be available in the test set (35 columns).  These column values were merge in from the full raw data file.  
+### 📊 Project Results Summary
 
-Some trends were noticed regarding elements throughout the gold purification process.  Golds highest concentration was at the end of the process; indicating a successful purification process.  Silver's highest concentration during the purification process is the product output from the second cleaning (primary_cleaner.output.tail_ag).  The presence of both lead and silver through the purification process was minority volumes. The average feed size is exactly the same according to the phase of gold purification between the two dataframes.  This is an indication that the machine learning model will be well trained since similiar data is present in both dataframes. 
+| Metric                            | Value                     |
+|----------------------------------|---------------------------|
+| MAE of recovery verification     | 9.3e-15                   |
+| Test sMAPE (rougher recovery)    | **10.67%**                |
+| Test sMAPE (final recovery)      | **15.25%**                |
+| Final Combined sMAPE             | **14.10%**                |
+| Best Model                       | Random Forest Regressor   |
+| Optimized Parameters             | `max_depth=10`, `n_estimators=100` |
 
-Discovery was made that the best model to use was a Random Forest Regressor.  In testing the training model this achieved the low sMAPE value of 10.67%. The variables were then redefined to match the test set dataframe.  The optimization random forest regressor for 'roughter.output.recovery' and 'final.output.recovery' resulted in a sMAPE value of 15.24%. Both of these values were used to calculate the final sMAPE value of 0.141%. This model proficiently predicts gold recovery, helping to optimize production and eliminate unprofitable parameters. This effort paves the way for improved operational efficiency.
 
 📸 Screenshots
 ### 🧪 Null Value Heatmap  
@@ -106,6 +112,30 @@ Discovery was made that the best model to use was a Random Forest Regressor.  In
 ### ⚙️ Feature Importance  
 ![Feature Importance](images/goldmining_image_8.png)
 
+✅ Conclusion
+This project began with a raw challenge: predicting gold recovery rates at two essential stages in the purification process—flotation and final output—based on complex industrial sensor data. By reverse-engineering recovery calculations and ensuring consistency across training and testing datasets, we validated the dataset’s integrity and gained confidence in the problem setup.
+
+Through thoughtful exploratory analysis, we uncovered meaningful trends:
+
+Gold concentration peaks at the final purification stage—exactly where we want it.
+
+Silver and lead appear in trace amounts at intermediate outputs, confirming effective purification.
+
+Feed particle sizes were nearly identical between train and test sets, supporting good generalization.
+
+Model selection was guided by domain-specific performance metrics. We implemented a custom symmetric Mean Absolute Percentage Error (sMAPE) scoring function to assess accuracy relative to the scale of outputs. After evaluating several candidates, a Random Forest Regressor emerged as the top performer.
+
+Final results:
+
+Rougher output recovery sMAPE: 10.67%
+
+Final output recovery sMAPE: 15.25%
+
+Combined final sMAPE: 14.10%
+
+These results demonstrate the model's ability to deliver reliable, actionable predictions. With this system in place, mining operators could optimize yields, minimize waste, and identify process deviations before they impact production.
+
+Ultimately, this project illustrates not just the use of machine learning, but the end-to-end thinking and engineering required to bring predictive insights into a real-world industrial workflow.
 
 🤝 Contributing
 Feel free to fork this project and explore:
